@@ -74,6 +74,7 @@ print_numbers(1, 2, 3, 4, 5)
 
 
 def add_all(*args):
+    print(args) # its an tuple
     return sum(args)
 
 
@@ -90,3 +91,46 @@ def print_info(**details):
         print(f"{key}: {value}")
 
 print_info(name="Alice", age=25, city="New York")
+
+# docstring - description of a function
+
+def divide(a,b):
+    """
+    Divides two numbers.
+
+    Args:
+        a (int): The first number.
+        b (int): The second number.
+
+    Returns:
+        float: The result of the division.
+    """
+
+    return a/b
+
+
+print(divide.__doc__)
+print(divide(10,5))
+
+
+
+
+def calculate_bmi(weight_kg,height_m):
+
+    """
+    Calculates the Body Mass Index (BMI) based on weight and height.    
+    """
+    bmi=weight_kg/(height_m**2)
+
+    if bmi<18.5:
+       category="Underweight"
+    elif bmi<25:
+       category="Normal weight"
+    else:
+       category="Overweight"
+
+    return round(bmi,2),category
+
+
+bmi,category=calculate_bmi(70,1.75)
+print(f"Your BMI is {bmi} and you are {category}")
